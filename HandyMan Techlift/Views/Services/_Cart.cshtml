@@ -1,0 +1,29 @@
+﻿@using HandyMan_Techlift.Models.VMs;
+
+@model List<OrderVM>
+<div style="background-color:skyblue;color:white" >
+    <h2>Cart</h2>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-6" style="border:groove solid black; border-radius:3px">
+                <b>Service Name</b> <span>@item.serviceName</span>
+
+            </div>
+            <div class="col-6" style="border:groove solid black; border-radius:3px">
+                <b>Service Price</b> <span>@item.servicePrice</span>
+            </div>
+            <div class="col-6" style="border:groove solid black; border-radius:3px">
+                <a  class="btn btn-dark">Remove</a>
+            </div>
+           
+            </div>
+       
+            <hr />
+    }
+    <div style="margin-left:400px">
+      <b>Order Total: </b>  @Model.Select(a=>a.servicePrice).Sum()
+    </div>
+   
+</div>
+
